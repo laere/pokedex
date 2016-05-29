@@ -10,11 +10,22 @@ const initialState = {
 export const pokedexData = (state = initialState, action) => {
   switch(action.type) {
     case actions.POKEDEX_REQUEST:
-      return state;
+      return {
+        ...state,
+        isFetching: true
+      }
     case actions.POKEDEX_SUCCESS:
-      return state;
+      return {
+        ...state,
+        data: action.data,
+        isFetching: false,
+        receivedAt: Date.now()
+      }
     case actions.POKEDEX_FAILURE:
-      return state;
+      return {
+        ...state,
+        isFetching: false
+      }
    default:
     return state;
   }
@@ -23,7 +34,7 @@ export const pokedexData = (state = initialState, action) => {
 export const search = (state = '', action) => {
   switch(action.type) {
     case POKEDEX_SEARCHVALUE:
-      return state;
+      return action.text;
     default:
       return state;
   }
