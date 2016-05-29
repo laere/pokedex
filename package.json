@@ -1,5 +1,5 @@
 {
-  "name": "yelp-app",
+  "name": "pokedex",
   "version": "1.0.0",
   "description": "Yelp app",
   "scripts": {
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/laere/yelp-app.git"
+    "url": "https://github.com/laere/pokedex.git"
   },
   "author": "Zack Bostian <bostianz@gmail.com> (http://github.com/laere)",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/laere/yelp-app/issues"
+    "url": "https://github.com/laere/pokedex/issues"
   },
-  "homepage": "https://github.com/gaearon/yelp-app",
+  "homepage": "https://github.com/gaearon/pokedex",
   "devDependencies": {
     "babel-core": "^6.6.5",
     "babel-eslint": "^5.0.0-beta4",
