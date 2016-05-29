@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-const Pokedex = () => {
+const Pokedex = ({data}) => {
   return (
     <div>
     </div>
