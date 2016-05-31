@@ -1,16 +1,14 @@
 import React, { Component, PropTypes } from 'react';
+import Sprites from './Sprites';
 
 const Pokedex = ({data}) => {
   return (
     <div>
       {data.data.map(x => {
           return (
-            <div>
+            <div key={x.id}>
               <div>{x.name}</div>
-              <img src={x.sprites.front_default} alt="sprite" />
-              <img src={x.sprites.back_default} alt="sprite" />
-              <img src={x.sprites.front_shiny} alt="sprite" />
-              <img src={x.sprites.back_shiny} alt="sprite" />
+              <Sprites sprites={x.sprites} />
               <div>Starting abilities: {x.abilities.map(x => x.ability.name + ' ')}</div>
             </div>
           );
