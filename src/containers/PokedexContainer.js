@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetch, trackSearchValue } from '../actions/PokedexActions';
+import { fetchPokemonData, trackSearchValue } from '../actions/PokedexActions';
+import { fetchEvolutionData } from '../actions/EvolutionActions';
 import Searchbar from '../components/Searchbar';
 import Pokedex from '../components/Pokedex';
 
@@ -16,6 +17,7 @@ class PokedexContainer extends React.Component {
     super();
     this._handleOnSubmit = this._handleOnSubmit.bind(this);
     this._handleOnChange = this._handleOnChange.bind(this);
+    this._handleEvolutionClick = this._handleEvolutionClick.bind(this);
   }
 
   _handleOnSubmit(e) {
@@ -29,6 +31,11 @@ class PokedexContainer extends React.Component {
     getText(e.target.value)
   }
 
+  _handleEvolutionClick(e, id) {
+    const { getEvolutionData } = this.props;
+    getEvolutionData(`http://pokeapi.co/api/v2/evolution-chain/${id}/`)
+  }
+
   render() {
     const { text, data } = this.props;
     return (
@@ -36,7 +43,8 @@ class PokedexContainer extends React.Component {
         <Searchbar onChange={this._handleOnChange}
                    onSubmit={this._handleOnSubmit}
                    text={text} />
-        <Pokedex data={data} />
+        <Pokedex data={data}
+                 onEvolutionClick={this._handleEvolutionClick}/>
       </div>
     );
   }
@@ -52,7 +60,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPokeData: (url) => dispatch(fetch(url)),
+    getPokeData: (url) => dispatch(fetchPokemonData(url)),
+    getEvolutionData: (url) => dispatch(fetchEvolutionData(url)),
     getText: (text) => dispatch(trackSearchValue(text))
   }
 }

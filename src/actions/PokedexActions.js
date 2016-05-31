@@ -25,7 +25,7 @@ const receive = (type, data) => {
   }
 }
 
-export const fetch = (url) => {
+export const fetchPokemonData = (url) => {
   return (dispatch) => {
     dispatch(request());
 
