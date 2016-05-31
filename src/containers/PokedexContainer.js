@@ -6,7 +6,7 @@ import Pokedex from '../components/Pokedex';
 
 class PokedexContainer extends React.Component {
   static propTypes = {
-    data: PropTypes.array.isRequired,
+    data: PropTypes.object.isRequired,
     text: PropTypes.string.isRequired,
     getPokeData: PropTypes.func.isRequired,
     getText: PropTypes.func.isRequired,
@@ -21,7 +21,7 @@ class PokedexContainer extends React.Component {
   _handleOnSubmit(e) {
     e.preventDefault();
     const { text, getPokeData } = this.props;
-    getPokeData(text);
+    getPokeData(`http://pokeapi.co/api/v2/pokemon/${text}/`);
   }
 
   _handleOnChange(e) {
@@ -45,14 +45,14 @@ class PokedexContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.pokedex.pokedexData,
+    data: state.pokedex.pokemon,
     text: state.pokedex.search
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPokeData: (pokemon) => dispatch(fetch(pokemon)),
+    getPokeData: (url) => dispatch(fetch(url)),
     getText: (text) => dispatch(trackSearchValue(text))
   }
 }

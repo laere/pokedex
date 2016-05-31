@@ -5,10 +5,10 @@ export const POKEDEX_SUCCESS = 'POKEDEX_SUCCESS';
 export const POKEDEX_FAILURE = 'POKEDEX_FAILURE';
 export const POKEDEX_SEARCHVALUE = 'POKEDEX_SEARCHVALUE';
 
-const trackSearchValue = (val) => {
+export const trackSearchValue = (text) => {
   return {
     type: POKEDEX_SEARCHVALUE,
-    val
+    text
   }
 }
 
@@ -25,11 +25,11 @@ const receive = (type, data) => {
   }
 }
 
-export const fetch = (pokemon) => {
+export const fetch = (url) => {
   return (dispatch) => {
-    return dispatch(request());
+    dispatch(request());
 
-    return axios.get(pokemon)
+    return axios.get(url)
     .then(res => dispatch(receive(POKEDEX_SUCCESS, res.data)))
     .catch(res => dispatch(receive(POKEDEX_FAILURE)))
   }

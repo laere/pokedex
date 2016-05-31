@@ -11,7 +11,7 @@ import Promise from 'redux-promise';
 // CONTAINERS
 import App from './app/app';
 //REDUCERS
-
+import rootReducer from './reducers/RootReducer';
 // Store with middleware.
 const createStoreWithMiddleware = compose(
   applyMiddleware(Thunk, Promise),

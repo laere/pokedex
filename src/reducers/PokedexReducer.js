@@ -7,7 +7,7 @@ const initialState = {
   receivedAt: null
 }
 
-export const pokedexData = (state = initialState, action) => {
+const pokemon = (state = initialState, action) => {
   switch(action.type) {
     case actions.POKEDEX_REQUEST:
       return {
@@ -17,7 +17,7 @@ export const pokedexData = (state = initialState, action) => {
     case actions.POKEDEX_SUCCESS:
       return {
         ...state,
-        data: action.data,
+        data: state.data.concat(action.data),
         isFetching: false,
         receivedAt: Date.now()
       }
@@ -31,9 +31,9 @@ export const pokedexData = (state = initialState, action) => {
   }
 }
 
-export const search = (state = '', action) => {
+ const search = (state = '', action) => {
   switch(action.type) {
-    case POKEDEX_SEARCHVALUE:
+    case actions.POKEDEX_SEARCHVALUE:
       return action.text;
     default:
       return state;
@@ -41,6 +41,6 @@ export const search = (state = '', action) => {
 }
 
 export const pokedex = combineReducers({
-  pokedexData,
+  pokemon,
   search
 })
