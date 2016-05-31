@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 const Stats = ({stats}) => {
   return (
     <div>
+      Stats:
       {stats.map(x => {
         return (
           <div>
@@ -12,6 +13,10 @@ const Stats = ({stats}) => {
       })}
     </div>
   );
+}
+
+Stats.propTypes = {
+  stats: PropTypes.array.isRequired
 }
 
 export default Stats;

@@ -9,4 +9,8 @@ const Abilities = ({abilities}) => {
   );
 }
 
+Abilities.propTypes = {
+  abilities: PropTypes.array.isRequired
+}
+
 export default Abilities;
