@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Sprites from './Sprites';
+import Stats from './Stats';
 
 const Pokedex = ({data}) => {
   return (
@@ -10,6 +11,7 @@ const Pokedex = ({data}) => {
               <div>{x.name}</div>
               <Sprites sprites={x.sprites} />
               <div>Starting abilities: {x.abilities.map(x => x.ability.name + ' ')}</div>
+              <Stats stats={x.stats} />
             </div>
           );
       })}
