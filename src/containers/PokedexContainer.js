@@ -37,13 +37,15 @@ class PokedexContainer extends React.Component {
   }
 
   render() {
-    const { text, data } = this.props;
+    const { text, data, evolution } = this.props;
+    console.log(evolution);
     return (
       <div>
         <Searchbar onChange={this._handleOnChange}
                    onSubmit={this._handleOnSubmit}
                    text={text} />
         <Pokedex data={data}
+                 evolution={evolution}
                  onEvolutionClick={this._handleEvolutionClick}/>
       </div>
     );
@@ -54,7 +56,8 @@ class PokedexContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     data: state.pokedex.pokemon,
-    text: state.pokedex.search
+    text: state.pokedex.search,
+    evolution: state.evolution.data
   }
 }
 

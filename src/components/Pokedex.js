@@ -4,8 +4,9 @@ import Type from './Type';
 import Sprites from './Sprites';
 import Abilities from './Abilities';
 import Stats from './Stats';
+import Evolution from './Evolution';
 
-const Pokedex = ({data, onEvolutionClick}) => {
+const Pokedex = ({data, onEvolutionClick, evolution}) => {
   return (
     <div>
       {data.data.map(x => {
@@ -16,7 +17,7 @@ const Pokedex = ({data, onEvolutionClick}) => {
               <Sprites sprites={x.sprites} />
               <Abilities abilities={x.abilities} />
               <Stats stats={x.stats} />
-              <button onClick={(e, id) => onEvolutionClick(e, x.id)}>Evolution Chain</button>
+              <Evolution evolution={evolution} pokeId={x.id} onEvolutionClick={onEvolutionClick} />
             </div>
           );
       })}
