@@ -4,8 +4,8 @@ import shortid from 'shortid';
 
 const Moves = ({moves}) => {
   return (
-    <div>
-      Moves:
+    <div className="pokemon__Moves">
+      <div>Moves:</div>
       {moves.map(x => {
         return (
           <div key={shortid.generate()}>
@@ -15,6 +15,10 @@ const Moves = ({moves}) => {
       })}
     </div>
   );
+}
+
+Moves.propTypes = {
+  moves: PropTypes.array.isRequired
 }
 
 export default Moves;

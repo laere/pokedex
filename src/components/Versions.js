@@ -4,8 +4,8 @@ import shortid from 'shortid';
 
 const Versions = ({versions}) => {
   return (
-    <div>
-      Games this Pokemon appears in:
+    <div className="pokemon__Versions">
+      <div>Games this Pokemon appears in:</div>
       {versions.map(x => {
         return (
           <div key={shortid.generate()}>
@@ -15,6 +15,10 @@ const Versions = ({versions}) => {
       })}
     </div>
   );
+}
+
+Versions.propTypes = {
+  versions: PropTypes.array.isRequired
 }
 
 export default Versions;
