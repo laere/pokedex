@@ -2,20 +2,19 @@ import React, { Component, PropTypes } from 'react';
 import { upperCase } from '../helpers/helpers';
 import shortid from 'shortid';
 
-const Type = ({type}) => {
+const Moves = ({moves}) => {
   return (
     <div>
-      {type.map(x => {
+      Moves:
+      {moves.map(x => {
         return (
-          <div key={shortid.generate()}>Type: {upperCase(x.type.name)}</div>
+          <div key={shortid.generate()}>
+            {upperCase(x.move.name)}
+          </div>
         );
       })}
     </div>
   );
 }
 
-Type.propTypes = {
-  type: PropTypes.array.isRequired
-}
-
-export default Type;
+export default Moves;
