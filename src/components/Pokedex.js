@@ -9,15 +9,16 @@ import Moves from './Moves';
 import Versions from './Versions'
 // import Evolution from './Evolution';
 
-const Pokedex = ({data, onEvolutionClick, evolution}) => {
+const Pokedex = ({data}) => {
   return (
     <div>
       {data.data.map(x => {
           return (
             <div key={shortid.generate()}>
-              <div>Name: {upperCase(x.name)}</div>
-              <Type type={x.types} />
               <Sprites sprites={x.sprites} />
+              <h3>Name:</h3>
+              <div>{upperCase(x.name)}</div>
+              <Type type={x.types} />
               <Abilities abilities={x.abilities} />
               <Stats stats={x.stats} />
               <Moves moves={x.moves} />

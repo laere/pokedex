@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 const Sprites = ({sprites}) => {
   return (
-    <div>
+    <div className="pokedex_Component">
       <img src={sprites.front_default} alt="sprite" />
       <img src={sprites.back_default} alt="sprite" />
       <img src={sprites.front_shiny} alt="sprite" />

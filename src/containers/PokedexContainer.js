@@ -17,7 +17,7 @@ class PokedexContainer extends React.Component {
     super();
     this._handleOnSubmit = this._handleOnSubmit.bind(this);
     this._handleOnChange = this._handleOnChange.bind(this);
-    this._handleEvolutionClick = this._handleEvolutionClick.bind(this);
+    // this._handleEvolutionClick = this._handleEvolutionClick.bind(this);
   }
 
   _handleOnSubmit(e) {
@@ -31,22 +31,20 @@ class PokedexContainer extends React.Component {
     getText(e.target.value)
   }
 
-  _handleEvolutionClick(e, id) {
-    const { getEvolutionData } = this.props;
-    getEvolutionData(`http://pokeapi.co/api/v2/evolution-chain/${id}/`)
-  }
+  // _handleEvolutionClick(e, id) {
+  //   const { getEvolutionData } = this.props;
+  //   getEvolutionData(`http://pokeapi.co/api/v2/evolution-chain/${id}/`)
+  // }
 
   render() {
     const { text, data, evolution } = this.props;
     console.log(evolution);
     return (
-      <div>
+      <div className="pokedex__Wrapper">
         <Searchbar onChange={this._handleOnChange}
                    onSubmit={this._handleOnSubmit}
                    text={text} />
-        <Pokedex data={data}
-                 evolution={evolution}
-                 onEvolutionClick={this._handleEvolutionClick}/>
+        <Pokedex data={data} />
       </div>
     );
   }
@@ -56,15 +54,14 @@ class PokedexContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     data: state.pokedex.pokemon,
-    text: state.pokedex.search,
-    evolution: state.evolution.data
+    text: state.pokedex.search
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getPokeData: (url) => dispatch(fetchPokemonData(url)),
-    getEvolutionData: (url) => dispatch(fetchEvolutionData(url)),
+    // getEvolutionData: (url) => dispatch(fetchEvolutionData(url)),
     getText: (text) => dispatch(trackSearchValue(text))
   }
 }

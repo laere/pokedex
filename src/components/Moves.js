@@ -4,12 +4,12 @@ import shortid from 'shortid';
 
 const Moves = ({moves}) => {
   return (
-    <div className="pokemon__Moves">
-      <div>Moves:</div>
+    <div className="pokedex_Component">
+      <h3>Moves:</h3>
       {moves.map(x => {
         return (
-          <div key={shortid.generate()}>
-            {upperCase(x.move.name)}
+          <div key={shortid.generate()} className="inlineBlockText">
+            {upperCase(x.move.name) + ','}
           </div>
         );
       })}

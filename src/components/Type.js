@@ -7,7 +7,10 @@ const Type = ({type}) => {
     <div>
       {type.map(x => {
         return (
-          <div key={shortid.generate()}>Type: {upperCase(x.type.name)}</div>
+          <div>
+            <h3>Type:</h3>
+            <div key={shortid.generate()}>{upperCase(x.type.name)}</div>
+          </div>
         );
       })}
     </div>

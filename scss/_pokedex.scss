@@ -1,0 +1,14 @@
+.pokedex__Wrapper {
+  background-color: red;
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto;
+  padding: 48px;
+  width: 940px;
+
+  .inlineBlockText {
+    display: inline-block;
+    margin-right: 12px;
+  }
+
+}

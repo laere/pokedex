@@ -1,14 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import shortid from 'shortid';
+import { upperCase } from '../helpers/helpers';
 
 const Stats = ({stats}) => {
   return (
     <div>
-      Stats:
+      <h3>Stats:</h3>
       {stats.map(x => {
         return (
           <div key={shortid.generate()}>
-            <a href={x.stat.url} target="_blank"><span>{x.stat.name}: {x.base_stat}</span></a>
+            <span>{upperCase(x.stat.name)}: {x.base_stat}</span>
           </div>
         );
       })}
