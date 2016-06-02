@@ -4,6 +4,7 @@ import { fetchPokemonData, trackSearchValue } from '../actions/PokedexActions';
 import { fetchEvolutionData } from '../actions/EvolutionActions';
 import Searchbar from '../components/Searchbar';
 import Pokedex from '../components/Pokedex';
+import Banner from '../components/Banner';
 
 class PokedexContainer extends React.Component {
   static propTypes = {
@@ -41,6 +42,7 @@ class PokedexContainer extends React.Component {
     console.log(evolution);
     return (
       <div className="pokedex__Wrapper">
+        <Banner />
         <Searchbar onChange={this._handleOnChange}
                    onSubmit={this._handleOnSubmit}
                    text={text} />

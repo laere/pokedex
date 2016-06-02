@@ -1,14 +1,48 @@
 .pokedex__Wrapper {
-  background-color: red;
+  background-color: $white;
+  color: $darkblack;
   display: flex;
   flex-flow: column;
   margin: 0 auto;
-  padding: 48px;
+  padding: 64px;
   width: 940px;
 
   .inlineBlockText {
     display: inline-block;
     margin-right: 12px;
   }
+
+  .pokedex__Sprites {
+    padding-top: 80px;
+    img {
+      width: 20%;
+      height: auto;
+    }
+  }
+
+  .pokedex__Searchbar {
+    border-radius: 5px;
+    border: 1px solid $darkblack;
+    padding: 8px;
+    margin-right: 8px;
+    width: 40%;
+  }
+
+  .pokedex__Searchbar--button {
+    border: 1px solid $darkblack;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: $white;
+    &:hover {
+      border-color: $white;
+      background-color: $red;
+      color: $white;
+    }
+
+  }
+
+.pokemon__Banner {
+  margin-bottom: 104px;
+}
 
 }

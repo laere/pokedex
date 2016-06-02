@@ -4,8 +4,8 @@ const Searchbar = ({onChange, onSubmit, text}) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input type="text" value={text} onChange={onChange}/>
-        <input type="submit" />
+        <input className="pokedex__Searchbar" type="text" value={text} onChange={onChange}/>
+        <input className="pokedex__Searchbar--button" type="submit" />
       </form>
     </div>
   );
