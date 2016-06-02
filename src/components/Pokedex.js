@@ -14,10 +14,10 @@ const Pokedex = ({data}) => {
     <div>
       {data.data.map(x => {
           return (
-            <div key={shortid.generate()}>
-              <Sprites sprites={x.sprites} />
+            <div key={shortid.generate()} className="pokedex__Content">
               <h3>Name:</h3>
               <div>{upperCase(x.name)}</div>
+              <Sprites sprites={x.sprites} />
               <Type type={x.types} />
               <Abilities abilities={x.abilities} />
               <Stats stats={x.stats} />

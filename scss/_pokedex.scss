@@ -20,8 +20,12 @@
     }
   }
 
+  .pokedex__Content {
+    padding-bottom: 88px;
+    border-bottom: 2px solid $whitegrey;
+  }
+
   .pokedex__Searchbar {
-    border-radius: 5px;
     border: 1px solid $darkblack;
     padding: 8px;
     margin-right: 8px;
@@ -30,7 +34,6 @@
 
   .pokedex__Searchbar--button {
     border: 1px solid $darkblack;
-    border-radius: 5px;
     padding: 8px;
     background-color: $white;
     &:hover {
